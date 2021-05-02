@@ -1,0 +1,370 @@
+@import "../../../../../variables";
+
+.button {
+  border-radius: 3px;
+  width: 250px;
+  height: 45px;
+  display: flex;
+  flex: 1 1 auto;
+  cursor: pointer;
+  transform: translateY(0px);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.25, 0.315, 1.35),
+    transform 0.1s linear, color 0.3s cubic-bezier(0.25, 0.25, 0.315, 1.35);
+  font-size: 15px;
+  font-weight: 500;
+  z-index: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin-right: 40px;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: none;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.buttonWhite {
+  background: $color-white;
+  color: $color-black;
+}
+
+:global(.lightTheme) .buttonWhite {
+  border: 1px solid $color-grey;
+}
+
+.buttonPrimary {
+  background: $color-primary;
+  color: $color-white;
+}
+
+.buttonTransparent {
+  border: 1px solid $color-white;
+  flex: 1 1 auto;
+  cursor: pointer;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $color-white;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 16px;
+  transition: background-color 0.1s ease, border-color 0.1s ease,
+    color 0.1s ease;
+}
+
+.buttonTransparent:hover,
+.buttonTransparent:active .buttonTransparent:focus {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  color: $color-white;
+}
+
+:global(.lightTheme) .buttonTransparent {
+  border-color: $color-white-alt;
+  color: $color-primary;
+}
+
+:global(.lightTheme) .buttonTransparent:hover,
+:global(.lightTheme) .buttonTransparent:active,
+:global(.lightTheme) .buttonTransparent:focus {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  color: $color-white;
+}
+
+.submitButton {
+  position: relative;
+  padding: 2px 16px;
+  outline: 0;
+  justify-content: center;
+  cursor: pointer;
+  display: flex;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px;
+  align-items: center;
+  transition: background-color 0.17s ease, color 0.17s ease;
+  min-width: 130px;
+  min-height: 44px;
+  height: 44px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.submitting {
+  pointer-events: none;
+}
+
+.submitButton.sizeSmall {
+  height: 32px;
+  min-height: 32px;
+  width: auto;
+  min-width: 130px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.submitButton.sizeMini {
+  height: 32px;
+  min-height: 32px;
+  width: auto;
+  padding: 2px 12px;
+  min-width: 32px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.fitText {
+  min-width: 72px !important;
+  padding: 2px;
+}
+
+.submitButton:hover,
+.submitButton:focus {
+  background-color: #677bc4;
+}
+
+.submitting .submitButton:hover,
+.submitting .submitButton:focus {
+  background-color: $color-primary;
+}
+
+.buttonLink {
+  position: relative;
+  line-height: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  height: auto;
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+  color: $color-primary;
+  cursor: pointer;
+  background: none;
+}
+
+.linkWhite {
+  color: #fff;
+}
+
+:global(.lightTheme) .linkWhite {
+  color: #72767d;
+}
+
+.smallButtonLink {
+  display: inline-block;
+  margin-left: 2px;
+  margin-bottom: 0px;
+}
+
+.buttonLink::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  height: 1px;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0s linear;
+  background: $color-primary;
+  width: 100%;
+}
+
+.buttonLink.linkWhite::after {
+  background: #fff;
+}
+
+:global(.lightTheme) .buttonLink.linkWhite::after {
+  background: #72767d;
+}
+
+@media screen and (max-width: 486px) {
+  .buttonLink::after {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 487px) {
+  .buttonLink:hover::after,
+  .buttonLink:focus::after {
+    opacity: 1;
+  }
+}
+
+.buttonModal {
+  cursor: pointer;
+  position: relative;
+  padding: 2px 16px;
+  line-height: 16px;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: none;
+  align-items: center;
+  background: none;
+  transition: background-color 0.17s ease, color 0.17s ease;
+  min-width: 96px;
+  min-height: 38px;
+  height: 38px;
+  width: auto;
+  color: #fff;
+}
+
+.buttonDanger {
+  color: #fff;
+  background-color: #f04747;
+}
+
+.buttonDanger:hover,
+.buttonDanger:focus {
+  background-color: #d84040 !important;
+}
+
+.buttonModal.lookFilled.buttonModalDanger {
+  background-color: #f04747;
+  color: #fff !important;
+}
+
+.buttonModal.lookFilled.buttonModalDanger:hover,
+.buttonModal.lookFilled.buttonModalDanger:focus {
+  background-color: #d84040;
+}
+
+.buttonModal.lookFilled.buttonModalPrimary {
+  background-color: #7289da;
+  color: #fff !important;
+}
+
+.buttonModal.lookFilled.buttonModalPrimary:hover,
+.buttonModal.lookFilled.buttonModalPrimary:focus {
+  background-color: #677bc4;
+}
+
+.disabled.submitButton {
+  background-color: #677bc4 !important;
+  cursor: not-allowed;
+  opacity: 1 !important;
+  transition: none;
+}
+
+.disabled.submitButton.buttonDanger {
+  background-color: #f04747 !important;
+  cursor: not-allowed;
+  opacity: 1 !important;
+  transition: none;
+}
+
+.noMarginBottom {
+  margin-bottom: 0 !important;
+}
+
+.contents {
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iconHoverWrapper {
+  cursor: pointer;
+  position: relative;
+  background: none;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.disabled.iconHoverWrapper {
+  cursor: not-allowed;
+  background: transparent !important;
+}
+
+.iconHoverWrapper:hover {
+  background: hsla(0, 0%, 0%, 0.15);
+}
+
+:global(.lightTheme) .iconHoverWrapper:hover,
+:global(.lightTheme) .iconHoverWrapper:focus {
+  background: rgba(79, 84, 92, 0.1);
+}
+
+.iconHoverWrapper:active {
+  background: hsla(0, 0%, 0%, 0.3);
+}
+
+.customIconTest {
+  width: 16px;
+  fill-opacity: 0.75;
+  fill: #f6f6f7;
+  top: 1px;
+  position: relative;
+}
+
+:global(.lightTheme) .customIconTest {
+  fill-opacity: 1;
+  fill: #4f545c;
+}
+
+:global(.lightTheme) .iconHoverWrapper:active {
+  background: rgba(79, 84, 92, 0.3);
+}
+
+.iconHoverWrapper:active .customIconTest {
+  fill: #fff;
+}
+
+.iconHoverWrapper.danger:hover,
+.iconHoverWrapper.danger:focus {
+  background-color: rgba(240, 71, 71, 0.1);
+}
+
+.iconHoverWrapper.danger:active {
+  background-color: rgba(240, 71, 71, 1);
+}
+
+.iconHoverWrapper.danger:hover .customIconTest,
+.iconHoverWrapper.danger:focus .customIconTest {
+  fill: rgb(240, 71, 71);
+}
+
+.iconHoverWrapper.danger:active .customIconTest {
+  fill: #fff;
+  fill-opacity: 1;
+}
+
+.iconHoverWrapper.green:hover,
+.iconHoverWrapper.green:focus {
+  background-color: rgba(67, 181, 129, 0.1);
+}
+
+.iconHoverWrapper.green:active {
+  background-color: rgba(67, 181, 129, 1);
+}
+
+.iconHoverWrapper.green:hover .customIconTest,
+.iconHoverWrapper.green:focus .customIconTest {
+  fill: rgb(67, 181, 129);
+}
+
+.iconHoverWrapper.green:active .customIconTest {
+  fill: #fff;
+  fill-opacity: 1;
+}
+
+.disabled.iconHoverWrapper .customIconTest {
+  fill-opacity: 0.75 !important;
+  fill: #f6f6f7 !important;
+}
+
+:global(.lightTheme) .disabled.iconHoverWrapper .customIconTest {
+  fill-opacity: 1 !important;
+  fill: #4f545c !important;
+}

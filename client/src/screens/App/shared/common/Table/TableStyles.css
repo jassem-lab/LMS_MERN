@@ -1,0 +1,31 @@
+.ReactTable {
+  border: none;
+}
+
+.ReactTable .rt-tr {
+  cursor: pointer;
+}
+
+.ReactTable .rt-tr:hover .rt-td {
+  background: rgba(79, 84, 92, 0.1);
+}
+
+.ReactTable .rt-tr .rt-td {
+  font-variant: tabular-nums;
+}
+
+.ReactTable .rt-body {
+  overflow-x: visible !important;
+}
+
+.ReactTable .-cursor-pointer {
+  cursor: pointer;
+}
+
+.ReactTable .-sort-desc {
+  box-shadow: inset 0 -3px 0 0 #7289da !important;
+}
+
+.ReactTable .-sort-asc {
+  box-shadow: inset 0 3px 0 0 #7289da !important;
+}
