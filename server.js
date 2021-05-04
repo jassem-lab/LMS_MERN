@@ -6,6 +6,7 @@ const https = require('https');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
+const morgan = require('morgan')
 
 const cors = require('cors');
 
@@ -33,6 +34,7 @@ const app = express();
 //body parser middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cors())
 
 //if (process.env.NODE_ENV === 'production') {
 app.use(express.static(path.join(__dirname, 'client', 'build')));
@@ -54,7 +56,7 @@ mongoose
 //passport middleware
 app.use(passport.initialize());
 app.use(compression());
-
+app.use(morgan('dev'))
 //passport config
 require('./config/passport.js')(passport);
 

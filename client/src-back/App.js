@@ -12,22 +12,24 @@ import Footer from './components/common/Footer';
 
 class App extends Component {
   state = {
-    isDbUp: true
+    isDbUp: true,
   };
 
   componentWillMount = () => {
     axios
       .get('/api/utils/check-db')
-      .then(res => {
+      .then((res) => {
         this.setState({
           ...this.state,
-          isDbUp: res.data.status === 1 ? true : false
+          isDbUp: res.data.status === 1 ? true : false,
         });
       })
-      .then(err => console.log(err));
-  };
+      .then((err) => console.log(err));
+      console.log(this.state.isDbUp) // checking if DATABASE IS UP 
+    };
 
   render() {
+
     const props = this.props;
     const { auth, utils, logoutUser } = props;
     const { isDarkTheme } = utils;
@@ -36,11 +38,12 @@ class App extends Component {
       return (
         <div
           className={!isDarkTheme ? 'lightTheme' : null}
-          style={{ height: '100%' }}>
+          style={{ height: '100%' }}
+        >
           <Switch>
             <Route
               exact
-              path="/"
+              path='/'
               render={() => (
                 <Home
                   isAuthenticated={isAuthenticated}
@@ -52,8 +55,8 @@ class App extends Component {
             />
             <Route
               exact
-              path="/login"
-              key="login"
+              path='/login'
+              key='login'
               render={() => (
                 <LoginActivateContainer
                   isDarkTheme={isDarkTheme}
@@ -63,8 +66,8 @@ class App extends Component {
             />
             <Route
               exact
-              key="activate"
-              path="/activate"
+              key='activate'
+              path='/activate'
               render={() => (
                 <LoginActivateContainer
                   isDarkTheme={isDarkTheme}
@@ -73,7 +76,7 @@ class App extends Component {
               )}
             />
             <Route
-              path="/reset-password"
+              path='/reset-password'
               render={() => (
                 <ForgotPasswordContainer
                   isDarkTheme={isDarkTheme}
@@ -84,7 +87,7 @@ class App extends Component {
             <Switch>
               <PrivateRoute
                 location={this.props.location}
-                path="/dashboard"
+                path='/dashboard'
                 component={DashboardContainer}
               />
               <Route
@@ -99,7 +102,8 @@ class App extends Component {
       return (
         <div
           className={!isDarkTheme ? 'lightTheme' : null}
-          style={{ height: '100%' }}>
+          style={{ height: '100%' }}
+        >
           <div style={{ height: '100%' }} className={styles.app}>
             <div className={styles.banner}>
               <div
@@ -107,8 +111,9 @@ class App extends Component {
                 style={{
                   fontWeight: '800',
                   fontSize: '48px',
-                  paddingBottom: '12px'
-                }}>
+                  paddingBottom: '12px',
+                }}
+              >
                 DB currently down
               </div>
               <div className={styles.text}>
