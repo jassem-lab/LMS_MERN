@@ -10,13 +10,13 @@ const activateAccount = (req, res) => {
   }
 
   User.findOne({ email: req.body.email })
-    .then(user => {
+    .then((user) => {
       if (user) {
         errors.email = 'Email already in use';
         return res.status(400).json(errors);
       }
       User.findOne({ staffId: req.body.staffId })
-        .then(user => {
+        .then((user) => {
           if (user.activated == true) {
             errors.staffId = 'Staff account already activated';
             return res.status(400).json(errors);
@@ -27,21 +27,21 @@ const activateAccount = (req, res) => {
               user.set({
                 activated: true,
                 email: req.body.email,
-                password: hash
+                password: hash,
               });
               user
                 .save()
-                .then(user => res.status(200).json('success'))
-                .catch(err => console.log(err));
+                .then((user) => res.status(200).json('success'))
+                .catch((err) => console.log(err));
             });
           });
         })
-        .catch(err => {
+        .catch((err) => {
           errors.staffId = 'Staff account not found';
           return res.status(400).json(errors);
         });
     })
-    .catch(err => {
+    .catch((err) => {
       errors.staffId = 'Staff account not found';
       return res.status(400).json(errors);
     });

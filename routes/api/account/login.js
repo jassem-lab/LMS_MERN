@@ -9,6 +9,7 @@ const User = require('../../../models/User');
 const login = (req, res) => {
   const errors = validationResult(req).formatWith(({ msg }) => msg);
   if (!errors.isEmpty()) {
+    console.log('error2')
     return res.status(400).json(errors.mapped());
   }
 
@@ -17,6 +18,7 @@ const login = (req, res) => {
   if (email === 'example@example.com') {
     errors.email = 'Wrong credentials';
     errors.password = 'Wrong credentials';
+    console.log('error 1')
     return res.status(400).json(errors);
   }
 
@@ -26,29 +28,33 @@ const login = (req, res) => {
     if (!user) {
       errors.email = 'Wrong credentials';
       errors.password = 'Wrong credentials';
+      console.log('error here')
       return res.status(400).json(errors);
     }
     //check password
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        //user matched
-        //create jwt payload
+        // user matched
+        // create jwt payload
         const payload = {
           id: user.id,
           name: user.name,
           staffId: user.staffId,
           accountType: user.accountType
         };
-
+        
         if (user.resetPasswordToken && user.resetPasswordToken !== '') {
           user.set({ resetPasswordToken: '', resetPasswordExpires: -1 });
           user.save();
         }
+        console.log(payload); 
 
         //sign the token
         jwt.sign(
-          payload,
-          process.env.secretOrKey,
+          {payload},
+          // verifyToken,
+          // process.env.secretOrKey,
+          'f47bqljBBiW8Tjkh8ggnjbUb5GRXdUke',
           { expiresIn: '24h' },
           (err, token) => {
             res.json({
@@ -57,6 +63,7 @@ const login = (req, res) => {
             });
           }
         );
+      
       } else {
         errors.email = 'Wrong credentials';
         errors.password = 'Wrong credentials';
@@ -65,5 +72,28 @@ const login = (req, res) => {
     });
   });
 };
+
+  // FORMAT OF TOKEN 
+  // Authorization : Bearer <access_tokens>
+
+function verifyToken(req,res,next){
+  // get auth header
+  const bearerHeader = req.headers['authorization']; 
+  // Check if bearer is undefined 
+  if(typeof bearerHeader !== 'undefined'){
+    // Split at the space
+    const bearer = bearerHeader.split(' ');
+    // get token from arrays
+    const bearerToken = bearer[1];
+    // set the token
+    req.token = bearerToken;
+    // next middleware
+    next()
+  }else{
+    // Forbidden token
+    res.sendStatus(403);
+  }
+
+}
 
 module.exports = login;
