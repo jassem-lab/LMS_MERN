@@ -20,11 +20,11 @@ class Home extends React.Component {
           <div className={styles.title}>
             {isAuthenticated
               ? `Welcome back, ${username}`
-              : 'Welcome to LMS - Leave Management System'}
+              : 'Welcome to ETAP - Management System'}
           </div>
           <div className={styles.text}>
             An all-in-one application to apply for leaves, manage and keep track
-            of them, for the Department of Information Science & Technology.
+            of them.
           </div>
           <div className={styles.buttons}>
             {isAuthenticated ? (
