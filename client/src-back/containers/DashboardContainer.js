@@ -53,8 +53,8 @@ class Container extends Component {
           profile={this.props.profile}
           staff={this.props.staff}
           timetable={this.props.timetable}
-          getAllClasses={this.props.getAllClasses}
-          getAllCourses={this.props.getAllCourses}
+          // getAllClasses={this.props.getAllClasses}
+          // getAllCourses={this.props.getAllCourses}
           getAllStaff={this.props.getAllStaff}
           utils={this.props.utils}
           getCurrentProfile={this.props.getCurrentProfile}
