@@ -133,7 +133,7 @@ class ResetPassword extends Component {
                 : styles.authbox
             }>
             <div className={styles.logo} style={{ marginBottom: '64px' }}>
-              <Link to="/">LMS</Link>
+              <Link to="/">ETAP</Link>
             </div>
             <div className={styles.title}>Reset your password</div>
             <div className={styles.subTitle}>
@@ -229,7 +229,7 @@ class ResetPassword extends Component {
                 : styles.authbox
             }>
             <div className={styles.logo} style={{ marginBottom: '64px' }}>
-              <Link to="/">LMS</Link>
+              <Link to="/">ETAP</Link>
             </div>
             <div className={styles.title}>Password reset link has expired</div>
             {/* <div className={styles.subTitle}>
@@ -266,7 +266,7 @@ class ResetPassword extends Component {
               : styles.authbox
           }>
           <div className={styles.logo} style={{ marginBottom: '64px' }}>
-            <Link to="/">LMS</Link>
+            <Link to="/">ETAP</Link>
           </div>
           <div className={styles.title}>Authorizing...</div>
         </div>
@@ -279,7 +279,7 @@ class ResetPassword extends Component {
           <div className={styles.dummy}>
             <div className={styles.banner}>
               <div className={styles.logo}>
-                <Link to="/">LMS</Link>
+                <Link to="/">ETAP</Link>
               </div>
               {toRender}
             </div>

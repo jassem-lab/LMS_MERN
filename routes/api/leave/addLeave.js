@@ -183,7 +183,7 @@ const addLeave = (req, res) => {
                   promises.push(
                     sendEmail({
                       to: req.user.email,
-                      subject: `LMS - Leave application submitted`,
+                      subject: `ETAP - Leave application submitted`,
                       body: `Your leave application ${
                         leave.leaveId
                       } has been successfully submitted and is under processing. <br>To view the status of your application, follow the below link:<br> http://localhost:3000//dashboard/leave/${
@@ -226,7 +226,7 @@ const addLeave = (req, res) => {
                                   promises.push(
                                     sendEmail({
                                       to: item.alternatingStaff.email,
-                                      subject: `LMS - ${
+                                      subject: `ETAP - ${
                                         item.originalStaff.name
                                       } has requested your approval for an alteration`,
                                       body: `<h3>Alteration request</h3><br>Requested by: <b>${

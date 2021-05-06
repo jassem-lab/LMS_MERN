@@ -287,30 +287,30 @@ class Dashboard extends Component {
           )}
         />
       );
-      pages.push(
-        <Route
-          path="/dashboard/class"
-          exact
-          render={() => (
-            <AddUpdateClass
-              pageTitle="Class Settings"
-              showPopout={this.props.showPopout}
-            />
-          )}
-        />
-      );
-      pages.push(
-        <Route
-          path="/dashboard/class-group"
-          exact
-          render={() => (
-            <AddUpdateClassGroup
-              pageTitle="Class Group Settings"
-              showPopout={this.props.showPopout}
-            />
-          )}
-        />
-      );
+      // pages.push(
+      //   <Route
+      //     path="/dashboard/class"
+      //     exact
+      //     render={() => (
+      //       <AddUpdateClass
+      //         pageTitle="Class Settings"
+      //         showPopout={this.props.showPopout}
+      //       />
+      //     )}
+      //   />
+      // );
+      // pages.push(
+      //   <Route
+      //     path="/dashboard/class-group"
+      //     exact
+      //     render={() => (
+      //       <AddUpdateClassGroup
+      //         pageTitle="Class Group Settings"
+      //         showPopout={this.props.showPopout}
+      //       />
+      //     )}
+      //   />
+      // );
       pages.push(
         <Route
           path="/dashboard/leave-type"

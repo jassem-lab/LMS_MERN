@@ -50,7 +50,7 @@ const setAlterationRejected = (req, res) => {
               promises.push(
                 sendEmail({
                   to: req.user.email,
-                  subject: `LMS - Alteration rejected`,
+                  subject: `ETAP - Alteration rejected`,
                   body: `You rejected alteration ${
                     alteration.alterationId
                   } from ${alteration.originalStaff.name} scheduled on ${dayjs(
@@ -91,7 +91,7 @@ const setAlterationRejected = (req, res) => {
               promises.push(
                 sendEmail({
                   to: alteration.originalStaff.email,
-                  subject: `LMS - Alteration rejected`,
+                  subject: `ETAP - Alteration rejected`,
                   body: `Your alteration for ${
                     alteration.leaveId
                   } (Alteration ID - ${

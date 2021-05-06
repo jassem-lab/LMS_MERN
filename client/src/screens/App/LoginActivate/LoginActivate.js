@@ -154,7 +154,7 @@ class LoginActivate extends Component {
               : styles.authbox
           }>
           <div className={styles.logo}>
-            <Link to="/">LMS</Link>
+            <Link to="/">ETAP</Link>
           </div>
           <div className={styles.title}>Welcome back!</div>
           {/* <div className={styles.subTitle}>
@@ -223,7 +223,7 @@ class LoginActivate extends Component {
               : styles.authbox
           }>
           <div className={styles.logo}>
-            <Link to="/">LMS</Link>
+            <Link to="/">ETAP</Link>
           </div>
           <div className={styles.title}>Activate your account</div>
           {/* <div className={styles.subTitle}>
@@ -308,7 +308,7 @@ class LoginActivate extends Component {
           <div className={styles.dummy}>
             <div className={styles.banner}>
               <div className={styles.logo}>
-                <Link to="/">LMS</Link>
+                <Link to="/">ETAP</Link>
               </div>
               {toRender}
             </div>

@@ -6,7 +6,7 @@ class Main extends Component {
   };
 
   render = () => {
-    return <div>abcd</div>;
+    return <div>Hello world</div>;
   };
 }
 

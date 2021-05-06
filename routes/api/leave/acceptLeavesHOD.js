@@ -77,7 +77,7 @@ const acceptLeavesHOD = (req, res) => {
                 });
                 emailsToSend.push({
                   to: item.staff.email,
-                  subject: `LMS - Leave accepted`,
+                  subject: `ETAP - Leave accepted`,
                   body: `Your leave application ${
                     item.leaveId
                   } was approved by the HOD. To view details follow the below link:<br> http://localhost:3000/dashboard/leave/${
@@ -111,7 +111,7 @@ const acceptLeavesHOD = (req, res) => {
                   });
                   emailsToSend.push({
                     to: altitem.alternatingStaff.email,
-                    subject: `LMS - Leave associated with your alteration approved`,
+                    subject: `ETAP - Leave associated with your alteration approved`,
                     body: `The leave ${
                       altitem.leaveId
                     } associated with your alteration ${

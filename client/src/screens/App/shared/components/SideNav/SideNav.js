@@ -238,7 +238,7 @@ class SideNav extends Component {
         </NavLink>
       );
       links.push(<div className={styles.seperator} />);
-      links.push(<div className={styles.menuHeader}>Timetable Settings</div>);
+      /*  links.push(<div className={styles.menuHeader}>Timetable Settings</div>);
       links.push(
         <NavLink
           exact
@@ -284,7 +284,7 @@ class SideNav extends Component {
         </NavLink>
       );
       links.push(<div className={styles.seperator} />);
-      links.push(<div className={styles.menuHeader}>Misc. Settings</div>);
+      links.push(<div className={styles.menuHeader}>Misc. Settings</div>); */
       /* links.push(
         <NavLink
           exact
@@ -366,11 +366,11 @@ class SideNav extends Component {
             <div className={styles.topBar}>
               <Tooltip content="Home" placement="bottom">
                 <div className={styles.logo}>
-                  <Link to="/">LMS</Link>
+                  <Link to="/">ETAP</Link>
                 </div>
               </Tooltip>
               <div className={styles.version}>
-                {`v${process.env.REACT_APP_VERSION}`}
+                {`v.1.0.0`}
               </div>
               <div className={styles.topBarIcons}>
                 <div

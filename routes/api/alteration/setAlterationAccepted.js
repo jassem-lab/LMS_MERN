@@ -52,7 +52,7 @@ const setAlterationAccepted = (req, res) => {
               promises.push(
                 sendEmail({
                   to: req.user.email,
-                  subject: `LMS - Alteration accepted`,
+                  subject: `ETAP - Alteration accepted`,
                   body: `You accepted alteration ${
                     alteration.alterationId
                   } from ${alteration.originalStaff.name} scheduled on ${dayjs(
@@ -93,7 +93,7 @@ const setAlterationAccepted = (req, res) => {
               promises.push(
                 sendEmail({
                   to: alteration.originalStaff.email,
-                  subject: `LMS - Alteration accepted`,
+                  subject: `ETAP - Alteration accepted`,
                   body: `Your alteration for ${
                     alteration.leaveId
                   } (Alteration ID - ${

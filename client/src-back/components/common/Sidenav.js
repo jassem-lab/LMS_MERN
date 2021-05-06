@@ -396,11 +396,11 @@ class Sidenav extends Component {
         <div className={styles.sideNav}>
           <div className={styles.menu}>
             <div className={styles.logo}>
-              <Link title="Leave Management System" to="/">
-                LMS
+              <Link title="Management System" to="/">
+                ETAP
               </Link>
               <div className={styles.menuText}>
-                {`v${process.env.REACT_APP_VERSION}`}
+                {`v1.0.0`}
               </div>
               <div className={styles.customHeaderIcons}>
                 <div className={`${styles.iconWrapper} ${styles.closeNavIcon}`}>
