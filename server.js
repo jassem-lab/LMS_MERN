@@ -79,9 +79,9 @@ app.get('/uploads', fileDownloadHandler);
 const port = process.env.PORT || 5000;
 
 //if (process.env.NODE_ENV === 'production') {
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
 //}
 
 let server = app.listen(port, () => {

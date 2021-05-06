@@ -36,6 +36,7 @@ export const registerUser = (userData, profileData, history) => dispatch => {
       if (!isEmpty(err.response))
         return dispatch({ type: GET_ERRORS, payload: err.response.data });
     });
+    
 };
 
 // parse UA of client & add corresponding success/failure entry in their profile
@@ -93,6 +94,7 @@ export const loginUser = (userData, history, destination = '') => dispatch => {
     .then(res => {
       //Save to local storage
       const { token } = res.data;
+      console.log(res)
       localStorage.setItem('jwtToken', token);
       //set token to auth header
       setAuthToken(token);
