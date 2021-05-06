@@ -10,14 +10,9 @@ export const staffTypes = Object.freeze({
 });
 
 const labels = {
-  RT: 'Regular Teaching',
-  RNT: 'Regular Non-Teaching',
-  TF: 'Teaching Fellow',
-  NT: 'Non-Teaching - No Leave',
-  RS30: 'Research Scholars - 30',
-  RS20: 'Research Scholars - 20',
-  RSO: 'Research Scholars - Others',
-  OTH: 'Others'
+  RT: 'ADMIN',
+  RNT: 'secretaire',
+  TF: 'employé',
 };
 
 export const staffTypeSelectOptions = Object.keys(staffTypes).map(
