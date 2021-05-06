@@ -105,7 +105,7 @@ class Sidenav extends Component {
             Add Privileged Account
           </div>
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/dashboard/add-course"
           exact
           className={styles.menuItem}
@@ -115,8 +115,8 @@ class Sidenav extends Component {
           <div style={{ display: 'inline' }} className={styles.menuText}>
             Add Course
           </div>
-        </NavLink>
-        <NavLink
+        </NavLink> */}
+        {/* <NavLink
           to="/dashboard/add-class"
           exact
           className={styles.menuItem}
@@ -126,7 +126,7 @@ class Sidenav extends Component {
           <div style={{ display: 'inline' }} className={styles.menuText}>
             Add Class
           </div>
-        </NavLink>
+        </NavLink> */}
         <header className={styles.menuHeader}>Leave</header>
         <NavLink
           to="/dashboard/leave-allocation"
@@ -152,7 +152,7 @@ class Sidenav extends Component {
             Leave Types
           </div>
         </NavLink>
-        <header className={styles.menuHeader}>Timetable</header>
+        {/* <header className={styles.menuHeader}>Timetable</header>
         <NavLink
           to="/dashboard/timetable"
           exact
@@ -185,7 +185,7 @@ class Sidenav extends Component {
           <div style={{ display: 'inline' }} className={styles.menuText}>
             Lab Allocation
           </div>
-        </NavLink>
+        </NavLink> */}
         <header className={styles.menuHeader}>Holidays</header>
         <NavLink
           to="/dashboard/add-holidays"
@@ -409,15 +409,7 @@ class Sidenav extends Component {
                     className={styles.customHeaderIconTest}
                   />
                 </div>
-                <div className={styles.iconWrapper}>
-                  <a
-                    title="GitHub repo"
-                    href="https://github.com/arkn98/lms"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    <LogoGithub className={styles.customHeaderIconTest} />
-                  </a>
-                </div>
+                
                 {/* <div className={styles.iconWrapper}>
                   <Link to="/">
                     <MdInformationCircle
