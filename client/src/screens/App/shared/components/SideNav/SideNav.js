@@ -380,16 +380,7 @@ class SideNav extends Component {
                   onClick={() => this.props.sideNavHide()}>
                   <MdBack className={styles.topBarIcon} />
                 </div>
-                <div className={styles.topBarIconWrapper}>
-                  <Tooltip content="GitHub repo" placement="bottom">
-                    <a
-                      href="https://github.com/arkn98/leave-management-system"
-                      target="_blank"
-                      rel="noopener noreferrer">
-                      <LogoGithub className={styles.topBarIcon} />
-                    </a>
-                  </Tooltip>
-                </div>
+                
               </div>
             </div>
             <div className={styles.scrollMenuWrapper}>
