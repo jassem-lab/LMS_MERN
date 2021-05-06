@@ -12,7 +12,7 @@ const setLoginAttempt = (req, res) => {
       Profile.findOne({ staffId: user.staffId })
         .then(profile => {
           if (!profile) {
-            
+            console.log("no profile")
             return res.status(404).json({ msg: 'User not found' }); 
           }
           let ua = parser(req.headers['user-agent']);
