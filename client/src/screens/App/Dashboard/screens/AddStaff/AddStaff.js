@@ -4,7 +4,7 @@ import {
   TextBox,
   Form,
   SelectBox,
-  SectionLabel
+  SectionLabel,
 } from 'screens/App/shared/common/FormInput';
 import { ButtonSubmit } from 'screens/App/shared/common/Button';
 import { staffTypes, staffTypeSelectOptions } from 'data';
@@ -16,15 +16,15 @@ class AddStaff extends Component {
     staffId: '',
     name: '',
     designation: '',
-    category: staffTypes.RT
+    category: staffTypes.RT,
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps = (nextProps) => {
     if (nextProps.errors) {
       this.setState({
         ...this.state,
         errors: nextProps.errors,
-        isSubmitting: false
+        isSubmitting: false,
       });
     }
   };
@@ -33,11 +33,11 @@ class AddStaff extends Component {
     this.props.updateCurrentRouteTitle(this.props.pageTitle);
   };
 
-  inputOnChangeHandler = event => {
+  inputOnChangeHandler = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  formSubmitHandler = event => {
+  formSubmitHandler = (event) => {
     event.preventDefault();
     this.setState({ ...this.state, isSubmitting: true });
 
@@ -47,15 +47,15 @@ class AddStaff extends Component {
       designation: this.state.designation,
       category:
         this.state.category !== ''
-          ? staffTypeSelectOptions.find(x => x.value === this.state.category)
+          ? staffTypeSelectOptions.find((x) => x.value === this.state.category)
               .label
           : '',
-      staffType: this.state.category
+      staffType: this.state.category,
     };
 
     this.props
       .registerStaff(newUser, { staffId: this.state.staffId })
-      .then(res => {
+      .then((res) => {
         this.setState(
           {
             ...this.state,
@@ -64,7 +64,7 @@ class AddStaff extends Component {
             staffId: '',
             name: '',
             designation: '',
-            category: staffTypes.RT
+            category: staffTypes.RT,
           },
           () => {
             this.props.showPopout({
@@ -72,7 +72,7 @@ class AddStaff extends Component {
               title: 'Action successful',
               message: 'Staff account successfully added.',
               buttonPrimary: true,
-              buttonContent: 'Okay'
+              buttonContent: 'Okay',
             });
           }
         );
@@ -87,38 +87,38 @@ class AddStaff extends Component {
         <Form onSubmit={this.formSubmitHandler} showBottomSpace={true}>
           <SectionLabel
             containerStyles={styles.marginBottom20}
-            label="Account Details"
+            label='Account Details'
           />
           <TextBox
-            name="staffId"
-            label="Staff ID"
-            type="text"
+            name='staffId'
+            label='Staff ID'
+            type='text'
             value={this.state.staffId}
             inputOnChangeHandler={this.inputOnChangeHandler}
             errors={errors.staffId}
             containerStyles={styles.marginBottom20}
           />
           <TextBox
-            name="name"
-            label="Name"
-            type="text"
+            name='name'
+            label='Name'
+            type='text'
             value={this.state.name}
             inputOnChangeHandler={this.inputOnChangeHandler}
             errors={errors.name}
             containerStyles={styles.marginBottom20}
           />
           <TextBox
-            name="designation"
-            label="Designation"
-            type="text"
+            name='designation'
+            label='Designation'
+            type='text'
             value={this.state.designation}
             inputOnChangeHandler={this.inputOnChangeHandler}
             errors={errors.designation}
             containerStyles={styles.marginBottom20}
           />
           <SelectBox
-            name="category"
-            label="Category"
+            name='category'
+            label='Category'
             value={this.state.category}
             inputOnChangeHandler={this.inputOnChangeHandler}
             errors={errors.category}
@@ -128,7 +128,8 @@ class AddStaff extends Component {
           <ButtonSubmit
             sizeSmall={true}
             className={styles.marginBottom20}
-            isLoading={this.state.isSubmitting}>
+            isLoading={this.state.isSubmitting}
+          >
             Add Staff
           </ButtonSubmit>
         </Form>
