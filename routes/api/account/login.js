@@ -32,69 +32,72 @@ const login = (req, res) => {
       return res.status(400).json(errors);
     }
     //check password
-    if(password === user.password){
-      const payload = {
-        id : user.id , 
-        name : user.name, 
-        staffId : user.staffId , 
-        accountType : user.accountType , 
-      }
-      jwt.sign(
-          payload,
+    // if(password === user.password){
+    //   const payload = {
+    //     id : user.id , 
+    //     name : user.name, 
+    //     staffId : user.staffId , 
+    //     accountType : user.accountType , 
+    //   }
+    //   jwt.sign(
+    //       payload,
           // verifyToken,
-          process.env.secretOrKey,
+      //     process.env.secretOrKey,
 
+      //     { expiresIn: '24h' },
+      //     (err, token) => {
+      //       res.json({
+      //         success: true,
+      //         token: 'Bearer ' + token,
+      //       });
+      //     }
+      //   );
+      // } else {
+      //   errors.email = 'Wrong credentials';
+      //   errors.password = 'Wrong credentials';
+
+      //   return res.status(400).json(errors);
+      // }
+
+    bcrypt.compare(password, user.password).then((isMatch) => {
+      if (isMatch) {
+        console.log('CORRECT PASSWORD')
+
+        // user matched
+        // create jwt payload
+        const payload = {
+          id: user.id,
+          name: user.name,
+          staffId: user.staffId,
+          accountType: user.accountType,
+        };
+        console.log(payload)
+        if (user.resetPasswordToken && user.resetPasswordToken !== '') {
+          user.set({ resetPasswordToken: '', resetPasswordExpires: -1 });
+          user.save();
+        }
+
+        
+        //sign the token
+
+        jwt.sign(
+          payload,
+          process.env.secretOrKey,
           { expiresIn: '24h' },
           (err, token) => {
             res.json({
               success: true,
-              token: 'Bearer ' + token,
+              token: 'Bearer ' + token
             });
           }
         );
       } else {
         errors.email = 'Wrong credentials';
         errors.password = 'Wrong credentials';
-
         return res.status(400).json(errors);
       }
-
-    // bcrypt.compare(password, user.password).then((isMatch) => {
-    //   if (isMatch) {
-    //     console.log('CORRECT PASSWORD')
-
-        // user matched
-        // create jwt payload
-        // const payload = {
-        //   id: user.id,
-        //   name: user.name,
-        //   staffId: user.staffId,
-        //   accountType: user.accountType,
-        // };
-        // console.log(payload)
-        // if (user.resetPasswordToken && user.resetPasswordToken !== '') {
-        //   user.set({ resetPasswordToken: '', resetPasswordExpires: -1 });
-        //   user.save();
-        // }
-
-        
-        // //sign the token
-
-        // jwt.sign(
-        //   payload,
-        //   // verifyToken,
-        //   process.env.secretOrKey,
-
-        //   { expiresIn: '24h' },
-        //   (err, token) => {
-        //     res.json({
-        //       success: true,
-        //       token: 'Bearer ' + token,
-        //     });
-        //   }
-        // );
-    
-    })};
-
+    });
+  });
+};
 
 module.exports = login;
