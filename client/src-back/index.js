@@ -67,6 +67,6 @@ ReactDOM.render(
       <AppContainer isDarkTheme={isDarkTheme} />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('div')
 );
 /* registerServiceWorker(); */

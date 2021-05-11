@@ -30,7 +30,7 @@ class AddAdmin extends Component {
     category: staffTypes.RT
   };
 
-  componentWillReceiveProps = nextProps => {
+  componentDidUpdate = nextProps => {
     if (nextProps.errors) {
       this.setState({
         ...this.state,

@@ -31,33 +31,6 @@ const login = (req, res) => {
       console.log('wrong user');
       return res.status(400).json(errors);
     }
-    //check password
-    // if(password === user.password){
-    //   const payload = {
-    //     id : user.id , 
-    //     name : user.name, 
-    //     staffId : user.staffId , 
-    //     accountType : user.accountType , 
-    //   }
-    //   jwt.sign(
-    //       payload,
-          // verifyToken,
-      //     process.env.secretOrKey,
-
-      //     { expiresIn: '24h' },
-      //     (err, token) => {
-      //       res.json({
-      //         success: true,
-      //         token: 'Bearer ' + token,
-      //       });
-      //     }
-      //   );
-      // } else {
-      //   errors.email = 'Wrong credentials';
-      //   errors.password = 'Wrong credentials';
-
-      //   return res.status(400).json(errors);
-      // }
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {

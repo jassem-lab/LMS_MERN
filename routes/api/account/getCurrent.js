@@ -25,7 +25,7 @@ const getCurrent = (req, res) => {
           return res.status(200).json({ user: newUser });
         });
       } else {
-        return res.status(404).json({ msg: 'User not found' });
+        return res.status(404).json({ msg: 'User not fouund' });
       }
     })
     .catch(err => {

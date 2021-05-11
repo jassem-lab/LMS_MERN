@@ -141,7 +141,7 @@ class AddUpdateLeaveAllocation extends Component {
                 optList={this.props.leaveTypes.leaveTypeList.map(item => {
                   return {
                     label: `${item.leaveType} - ${
-                      leaveTypesLabels[item.leaveType]
+                      leaveTypesLabels
                     } - ${item.noOfDays}`,
                     value: item.leaveType
                   };

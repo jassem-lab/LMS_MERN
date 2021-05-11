@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const compression = require('compression');
-const https = require('https');
-const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
+
 const passport = require('passport');
 const path = require('path');
 const morgan = require('morgan')
@@ -15,8 +15,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('debug', true);
 
 const accountRoutes = require('./routes/api/account');
-const classRoutes = require('./routes/api/class');
-const courseRoutes = require('./routes/api/course');
+
 const leaveRoutes = require('./routes/api/leave');
 const staffRoutes = require('./routes/api/staff');
 const timetableRoutes = require('./routes/api/timetable');
@@ -25,7 +24,6 @@ const leaveTypeRoutes = require('./routes/api/leavetype');
 const leaveAllocationRoutes = require('./routes/api/leaveallocation');
 const helperRoutes = require('./routes/api/helpers');
 const holidayRoutes = require('./routes/api/holiday');
-const classGroupRoutes = require('./routes/api/classgroup');
 const alterationRoutes = require('./routes/api/alteration');
 const { fileDownloadHandler } = require('./routes/utils');
 
@@ -40,8 +38,7 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 //}
 
-//DB  config
-// const db = require('./config/keys').mongoURI;
+
 
 //connect to mongodb
 mongoose
@@ -54,17 +51,21 @@ mongoose
   .catch(err => console.log(err));
 
 //passport middleware
+// app.use(passport.session());  
 app.use(passport.initialize());
+// app.use(cookieSession({
+//   name : 'session',
+//   keys : process.env.secretOrKey
+// }))
 app.use(compression());
 app.use(morgan('dev'))
 //passport config
 require('./config/passport.js')(passport);
 
 //use routes
-app.use('/api/class', classRoutes);
+
 app.use('/api/alteration', alterationRoutes);
-app.use('/api/class-group', classGroupRoutes);
-app.use('/api/course', courseRoutes);
+
 app.use('/api/account', accountRoutes);
 app.use('/api/timetable', timetableRoutes);
 app.use('/api/leave-type', leaveTypeRoutes);
