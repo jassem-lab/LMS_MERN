@@ -34,7 +34,7 @@ const ProfileSchema = new Schema(
     },
     leaveAllocation: {
       type: Schema.Types.ObjectId,
-      ref: 'leaveallocations',
+      ref: '',
       require: true
     },
     leaveAvailed: {

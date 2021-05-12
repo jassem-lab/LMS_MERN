@@ -263,18 +263,18 @@ class Dashboard extends Component {
           )}
         />
       );
-      pages.push(
-        <Route
-          path="/dashboard/course"
-          exact
-          render={() => (
-            <AddUpdateCourse
-              pageTitle="Course Settings"
-              showPopout={this.props.showPopout}
-            />
-          )}
-        />
-      );
+      // pages.push(
+      //   <Route
+      //     path="/dashboard/course"
+      //     exact
+      //     render={() => (
+      //       <AddUpdateCourse
+      //         pageTitle="Course Settings"
+      //         showPopout={this.props.showPopout}
+      //       />
+      //     )}
+      //   />
+      // );
       pages.push(
         <Route
           path="/dashboard/holiday"

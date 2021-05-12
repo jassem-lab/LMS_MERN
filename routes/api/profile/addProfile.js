@@ -78,7 +78,7 @@ const addProfile = (req, res) => {
               });
               profileFields
                 .save()
-                .then(profile => res.status(200).json('success'))
+                .then(profile => res.status(200).json(profile))
                 .catch(err => {
                   console.log(err);
                   res.status(400).json(err);
@@ -91,8 +91,8 @@ const addProfile = (req, res) => {
       }
     })
     .catch(err => {
-      console.log(err);
       res.status(404).json(err);
+      console.log('it wont work fk sake');
     });
 };
 

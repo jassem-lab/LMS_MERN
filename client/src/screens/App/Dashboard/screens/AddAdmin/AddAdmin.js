@@ -30,7 +30,7 @@ class AddAdmin extends Component {
     category: staffTypes.RT
   };
 
-  componentDidUpdate = nextProps => {
+  componentWillR = nextProps => {
     if (nextProps.errors) {
       this.setState({
         ...this.state,
@@ -71,9 +71,16 @@ class AddAdmin extends Component {
           : '',
       staffType: this.state.category
     };
+    const newProfile = {
+      staffId : this.state.staffId, 
+      prevLogins : {} , 
+      cplCredits : 0 , 
+      leaveAllotted : 'leaveallocations' , 
+      leaveAvailed : 'CL'
+    } ; 
 
     this.props
-      .registerUser(newUser, { staffId: this.state.staffId })
+      .registerUser(newUser, newProfile , this.props.history,{ staffId: this.state.staffId })
       .then(res => {
         this.setState(
           {
